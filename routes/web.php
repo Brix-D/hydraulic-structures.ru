@@ -15,4 +15,16 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
+
+})->name('welcome')->middleware('auth:web');
+Route::group(['prefix' => 'auth', 'namespace' => 'App\Http\Controllers'], static function () {
+    Route::get('/login', 'Auth\AuthController@index')
+        ->name('auth.index');
+    Route::post('/register', 'Auth\AuthController@register')
+        ->name('auth.register');
+    Route::post('/login', 'Auth\AuthController@login')
+        ->name('auth.login');
+    Route::get('/logout', 'Auth\AuthController@logout')
+        ->name('auth.logout')->middleware('auth:web');
 });
+
