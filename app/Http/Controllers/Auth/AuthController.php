@@ -16,7 +16,7 @@ class AuthController extends Controller
 {
     public function index(): View
     {
-        return view('login');
+        return view('pages.login');
     }
 
     public function register(Request $request): RedirectResponse
@@ -49,7 +49,7 @@ class AuthController extends Controller
             return redirect('/');
         }
 
-        return view('login');
+        return view('pages.login');
     }
 
     public function logout(Request $request): RedirectResponse
