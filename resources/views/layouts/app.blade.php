@@ -6,19 +6,19 @@
 
         <title>@yield('page-title')</title>
         @vite('resources/css/app.css')
+        @vite('resources/css/icons.css')
         @stack('styles')
     </head>
     <body>
-
-        <div id="app">
+        <div id="app" class="flex flex-col min-h-screen">
             @section('header')
-                <header class="text-3xl">
-                    x-header
-                </header>
+                <x-header />
             @show
 
-            <main class="container">
+            <main class="bg-light flex-grow">
+                <div class="container px-6 mx-auto">
                 @yield('content')
+                </div>
             </main>
         </div>
 
