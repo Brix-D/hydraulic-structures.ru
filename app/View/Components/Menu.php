@@ -5,6 +5,7 @@ namespace App\View\Components;
 use Illuminate\View\Component;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Route;
 
 class Menu extends Component
 {
@@ -25,7 +26,13 @@ class Menu extends Component
      */
     public function render()
     {
-        $menu = [];
-        return view('components.menu', ['menu' => $menu]);
+        $menu = [
+            ['name' => 'Профиль', 'icon' => 'person', 'link' => 'auth.index'],
+            ['name' => 'Запись', 'icon' => 'edit', 'link' => 'welcome'],
+
+        ];
+
+        $currentRoute = Route::current()->getName();
+        return view('components.menu', ['menu' => $menu, 'currentRoute' => $currentRoute]);
     }
 }

@@ -1,8 +1,8 @@
 <header class="header bg-demi p-6 flex items-center">
     <div class="flex items-center gap-x-4">
-        <x-ui.u-button link :href="route('welcome')">
+        <!-- <x-ui.u-button link :href="route('welcome')">
             <span class="material-icons-outlined">home</span>
-        </x-ui.u-button>
+        </x-ui.u-button> -->
 
         <h1 class="text-2xl text-primary font-semibold">
             Гидротехнические сооружения

@@ -1,3 +1,6 @@
 .menu {
+}
 
+.menu__item:hover > .menu__item-tooltip {
+    display: flex;
 }

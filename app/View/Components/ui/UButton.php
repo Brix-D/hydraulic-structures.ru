@@ -15,6 +15,7 @@ class UButton extends Component
         'info' => 'bg-info',
         'primary' => 'bg-primary',
         'secondary' => 'bg-secondary',
+        'accent' => 'bg-accent',
     ];
 
     private $textColors = [
@@ -22,6 +23,7 @@ class UButton extends Component
         'info' => 'text-info',
         'primary' => 'text-primary',
         'secondary' => 'text-secondary',
+        'accent' => 'text-accent',
     ];
 
     private $sizes = [

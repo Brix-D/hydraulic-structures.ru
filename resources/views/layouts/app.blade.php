@@ -7,6 +7,7 @@
         <title>@yield('page-title')</title>
         @vite('resources/css/app.css')
         @vite('resources/css/icons.css')
+        @vite('resources/css/components/menu.css')
         @stack('styles')
     </head>
     <body>
@@ -15,15 +16,15 @@
                 <x-header />
             @show
 
-            <main class="bg-light flex-grow">
-                <!-- @auth -->
+            <main class="bg-light flex-grow flex">
+                @auth
                     @section('menu')
                         <x-menu />
                     @show
-                <!-- @endauth -->
+                @endauth 
                 
                 <div class="container px-6 mx-auto">
-                @yield('content')
+                    @yield('content')
                 </div>
             </main>
         </div>
