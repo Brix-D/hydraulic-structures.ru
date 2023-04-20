@@ -16,6 +16,12 @@
             @show
 
             <main class="bg-light flex-grow">
+                <!-- @auth -->
+                    @section('menu')
+                        <x-menu />
+                    @show
+                <!-- @endauth -->
+                
                 <div class="container px-6 mx-auto">
                 @yield('content')
                 </div>

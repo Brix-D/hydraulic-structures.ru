@@ -17,6 +17,7 @@ Route::get('/', function () {
     return view('welcome');
 
 })->name('welcome')->middleware('auth:web');
+
 Route::group(['prefix' => 'auth', 'namespace' => 'App\Http\Controllers'], static function () {
     Route::get('/login', 'Auth\AuthController@index')
         ->name('auth.index');

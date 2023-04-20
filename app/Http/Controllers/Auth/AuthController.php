@@ -16,6 +16,8 @@ class AuthController extends Controller
 {
     public function index(): View
     {
+        //$user = Auth::user();
+       // dd($user);
         return view('pages.login');
     }
 

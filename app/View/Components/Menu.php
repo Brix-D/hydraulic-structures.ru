@@ -6,7 +6,7 @@ use Illuminate\View\Component;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
 
-class Header extends Component
+class Menu extends Component
 {
     /**
      * Create a new component instance.
@@ -25,10 +25,7 @@ class Header extends Component
      */
     public function render()
     {
-
-        $currentTime = (new Carbon())->format('H:i');
-
-        $user = Auth::user();
-        return view('components.header', ['currentTime' => $currentTime, 'user' => $user]);
+        $menu = [];
+        return view('components.menu', ['menu' => $menu]);
     }
 }
