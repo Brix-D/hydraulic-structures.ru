@@ -9,7 +9,7 @@ module.exports = {
     ],
     safelist: [
         {
-            pattern: /(bg|text)-(white|secondary|primary|info|accent)/,
+            pattern: /(bg|text)-(white|secondary|primary|info|accent|error)/,
         },
         {
             pattern: /(h)-(6|9|14)/,
@@ -26,6 +26,7 @@ module.exports = {
                 light: colors.slate["100"],
                 demi: colors.blue["100"],
                 accent: colors.indigo["900"],
+                error: colors.red['600'],
             },
         },
     },

@@ -21,6 +21,8 @@ Route::get('/', function () {
 Route::group(['prefix' => 'auth', 'namespace' => 'App\Http\Controllers'], static function () {
     Route::get('/login', 'Auth\AuthController@index')
         ->name('auth.index');
+    Route::get('/register', 'Auth\AuthController@registerWorker')
+        ->name('auth.registerWorker');
     Route::post('/register', 'Auth\AuthController@register')
         ->name('auth.register');
     Route::post('/login', 'Auth\AuthController@login')

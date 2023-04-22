@@ -10,27 +10,22 @@
             @csrf
             <div class="flex flex-col gap-y-2">
                 <p class="text-primary text-lg font-medium">Электронная почта:</p>
-                <!-- <input type="email" name="email" placeholder="Email"/> -->
                 <x-ui.u-input type="email" name="email"/>
+                @error('email')
+                    <div class="ml-4 text-error">{{ $message }}</div>
+                @enderror
             </div>
             <div class="flex flex-col gap-y-2">
                 <p class="text-primary text-lg font-medium">Пароль:</p>
-                <!-- <input type="password" name="password" placeholder="Пароль"/> -->
                 <x-ui.u-input type="password" name="password"/>
+                @error('password')
+                    <div class="ml-4 text-error">{{ $message }}</div>
+                @enderror
             </div>
-            <!-- <button type="submit">Войти</button> -->
             <x-ui.u-button type="submit">Войти</x-ui.u-button>
         </form>
     </div>
 </div>
-{{--    <h2>Регистрация</h2>--}}
-{{--    <form action="{{ route('auth.register') }}" method="POST">--}}
-{{--        @csrf--}}
-{{--        <input type="text" name="name" placeholder="Имя пользователя"/>--}}
-{{--        <input type="email" name="email" placeholder="Email"/>--}}
-{{--        <input type="password" name="password" placeholder="Пароль"/>--}}
-{{--        <button type="submit">Регистрация</button>--}}
-{{--    </form>--}}
 @endsection
 
 {{--@push('styles')--}}
