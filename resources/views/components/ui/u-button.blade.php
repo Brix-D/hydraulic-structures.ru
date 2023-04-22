@@ -12,6 +12,7 @@
         rounded-lg
         cursor-pointer
         hover:shadow-lg
+        justify-center
         {{$background }} {{$textColor}} {{ $size }}"
         href="{{$attributes->get('href')}}"
     >
@@ -26,6 +27,7 @@
         rounded-lg
         cursor-pointer
         hover:shadow-lg
+        justify-center
         {{ $background }} {{ $textColor }} {{ $size }}"
         {{$attributes}}
     >
