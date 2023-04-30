@@ -43,4 +43,14 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function sectionMeasures()
+    {
+        return $this->hasMany(SectionMeasure::class, 'userId', 'id');
+    }
+    
+    public function pumpMeasures()
+    {
+        return $this->hasMany(PumpMeasure::class, 'userId', 'id');
+    }
 }
