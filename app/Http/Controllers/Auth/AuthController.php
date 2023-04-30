@@ -53,9 +53,9 @@ class AuthController extends Controller
 
         $user->assignRole($credentials['role']);
 
-        Auth::login($user);
+        // Auth::login($user);
 
-        return redirect('/');
+        return redirect('/profile');
     }
 
     public function login(Request $request): RedirectResponse | View
@@ -68,7 +68,7 @@ class AuthController extends Controller
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
 
-            return redirect('/');
+            return redirect('/profile');
         }
 
         return view('pages.login');
@@ -82,6 +82,6 @@ class AuthController extends Controller
 
         $request->session()->regenerateToken();
 
-        return redirect('/');
+        return redirect('/auth/login');
     }
 }

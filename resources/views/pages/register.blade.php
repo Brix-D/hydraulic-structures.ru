@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('page-title', 'Войти')
+@section('page-title', 'Регистрация')
 
 @section('content')
 <div class="flex flex-col justify-center items-center h-full">

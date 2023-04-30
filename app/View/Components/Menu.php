@@ -26,11 +26,23 @@ class Menu extends Component
      */
     public function render()
     {
-        $menu = [
-            ['name' => 'Профиль', 'icon' => 'person', 'link' => 'auth.index'],
-            ['name' => 'Запись', 'icon' => 'edit', 'link' => 'welcome'],
 
+        $user = Auth::user();
+        $menu = [
+            ['name' => 'Профиль', 'icon' => 'person', 'link' => 'profile.index', 'group' => 'profile'],
         ];
+
+        if ($user->hasPermissionTo('store-measure')) {
+            $menu[] =  ['name' => 'Запись', 'icon' => 'edit', 'link' => 'collect.index', 'group' => 'collect'];
+        }
+
+        if ($user->hasAnyPermission(['view-measure', 'edit-measure'])) {
+            $menu[] =  ['name' => 'Журнал', 'icon' => 'receipt_long', 'link' => 'measures.index', 'group' => 'measures'];
+        }
+
+        if ($user->hasPermissionTo('view-reports')) {
+            $menu[] =  ['name' => 'Отчеты', 'icon' => 'stacked_line_chart', 'link' => 'reports.index', 'group' => 'reports'];
+        }
 
         $currentRoute = Route::current()->getName();
         return view('components.menu', ['menu' => $menu, 'currentRoute' => $currentRoute]);
