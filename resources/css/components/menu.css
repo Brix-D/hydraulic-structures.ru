@@ -1,4 +1,8 @@
-.menu {
+
+
+
+.menu + .content {
+    padding-left: 96px;
 }
 
 .menu__item:hover > .menu__item-tooltip {

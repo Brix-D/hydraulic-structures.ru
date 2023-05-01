@@ -1,4 +1,4 @@
-<header class="header bg-demi p-6 flex items-center">
+<header class="header w-full bg-demi p-6 flex items-center h-24 fixed">
     <div class="flex items-center gap-x-4">
         <!-- <x-ui.u-button link :href="route('welcome')">
             <span class="material-icons-outlined">home</span>

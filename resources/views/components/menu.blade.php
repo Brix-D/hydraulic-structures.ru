@@ -1,4 +1,4 @@
-<aside class="menu w-18 bg-accent text-white flex flex-col px-4 py-6 gap-y-4">
+<aside class="menu w-24 bg-accent text-white flex flex-col items-center px-4 py-6 gap-y-4 fixed h-full">
     @foreach($menu as $item)
     <div class="relative menu__item">
         <x-ui.u-button link :href="route($item['link'])" color="accent" :text="str_starts_with($currentRoute, $item['group']) ? true : false">

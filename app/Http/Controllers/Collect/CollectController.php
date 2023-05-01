@@ -13,6 +13,6 @@ class CollectController extends Controller {
 
     public function index(): View
     {
-        return view('pages.structures.index');
+        return view('pages.reservoirs.index');
     }
 }
