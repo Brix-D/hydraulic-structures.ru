@@ -46,6 +46,8 @@ Route::group(['prefix' => 'measures', 'namespace' => 'App\Http\Controllers', 'mi
         ->name('measures.index');
     Route::get('/{id}/sections', 'Measure\MeasureController@sections')
         ->name('measures.sections');
+    Route::get('/{reservoirId}/sections/{sectionId}', 'Measure\MeasureController@showSectionMeasures')
+        ->name('measures.entries');
 });
 
 Route::group(['prefix' => 'reports', 'namespace' => 'App\Http\Controllers', 'middleware' => ['auth:web', 'permission:view-reports']], static function () {

@@ -9,10 +9,9 @@
         <p class="text-secondary text-lg font-normal mb-6">{{ $resevoirName }}</p>
         <div class="bg-demi p-8 rounded-lg shadow-lg flex flex-col gap-y-6 min-w-[384px]">
             @foreach($sections as $section)
-            {{-- {{ route($forwardRoute, ['id' => $section->id]) }} --}}
-                <a href="" class="no-underline">
+                <a href="{{ route($forwardRoute, ['reservoirId' => $resevoirId, 'sectionId' => $section->id]) }}" class="no-underline">
                     <article class="bg-white hover:bg-light rounded-lg p-6 border-solid border-primary border">
-                        <h3 class="text-lg font-medium">Секция {{ $section->number }}</h3>
+                        <h3 class="text-lg font-medium">Секция №{{ $section->number }}</h3>
                     </article>
                 </a>
             @endforeach
