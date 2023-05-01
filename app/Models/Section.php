@@ -26,6 +26,6 @@ class Section extends Model
 
     public function sectionMeasures()
     {
-        return $this->hasMany(SectionMeasure::class, 'sectionId', 'id')
+        return $this->hasMany(SectionMeasure::class, 'sectionId', 'id');
     }
 }

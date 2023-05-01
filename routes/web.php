@@ -44,6 +44,8 @@ Route::group(['prefix' => 'collect', 'namespace' => 'App\Http\Controllers', 'mid
 Route::group(['prefix' => 'measures', 'namespace' => 'App\Http\Controllers', 'middleware' => ['auth:web', 'permission:view-measure|edit-measure']], static function () {
     Route::get('/', 'Measure\MeasureController@index')
         ->name('measures.index');
+    Route::get('/{id}/sections', 'Measure\MeasureController@sections')
+        ->name('measures.sections');
 });
 
 Route::group(['prefix' => 'reports', 'namespace' => 'App\Http\Controllers', 'middleware' => ['auth:web', 'permission:view-reports']], static function () {
