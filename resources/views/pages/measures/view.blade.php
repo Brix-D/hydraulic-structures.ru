@@ -53,12 +53,6 @@
             </tbody>
         </table>
     </div>
-    <!-- <pre>
-        {{ $section }}
-    </pre>
-    <pre>
-        {{ $measures }}
-    </pre> -->
 </div>
 
 @endsection

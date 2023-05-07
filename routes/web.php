@@ -39,6 +39,10 @@ Route::group(['prefix' => 'profile', 'namespace' => 'App\Http\Controllers', 'mid
 Route::group(['prefix' => 'collect', 'namespace' => 'App\Http\Controllers', 'middleware' => ['auth:web', 'permission:store-measure']], static function () {
     Route::get('/', 'Collect\CollectController@index')
         ->name('collect.index');
+    Route::get('/{id}/add', 'Collect\CollectController@create')
+        ->name('collect.add');
+    Route::post('/{reservoirId}/sections/{sectionId}/store', 'Collect\CollectController@store')
+        ->name('collect.store');
 });
 
 Route::group(['prefix' => 'measures', 'namespace' => 'App\Http\Controllers', 'middleware' => ['auth:web', 'permission:view-measure|edit-measure']], static function () {
