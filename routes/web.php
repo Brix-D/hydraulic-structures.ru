@@ -57,5 +57,9 @@ Route::group(['prefix' => 'measures', 'namespace' => 'App\Http\Controllers', 'mi
 Route::group(['prefix' => 'reports', 'namespace' => 'App\Http\Controllers', 'middleware' => ['auth:web', 'permission:view-reports']], static function () {
     Route::get('/', 'Report\ReportController@index')
         ->name('reports.index');
+    Route::get('/{id}/view', 'Report\ReportController@show')
+        ->name('reports.view');
+    Route::get('/{id}/chart', 'Report\ReportController@chartMeasures')
+        ->name('reports.chart');
 });
 

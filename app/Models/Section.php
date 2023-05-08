@@ -9,7 +9,7 @@ class Section extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['number', 'warningValue', 'maximumValue', 'reservoirId'];
+    protected $fillable = ['number', 'warningValue', 'maximumValue', 'reservoirId', 'color'];
 
     const CREATED_AT = "createdAt";
     const UPDATED_AT = "updatedAt";
