@@ -109,10 +109,10 @@ class MeasureController extends Controller {
             }
         });
 
-        $back = 'measures.sections';
+        $backRoute = route('measures.sections', ['id' => (int) $reservoirId]);
         $data = [
             'measures' => $measures,
-            'back' => $back,
+            'backRoute' => $backRoute,
             'reservoir' => $section->reservoir,
             'section' => $section,
         ];

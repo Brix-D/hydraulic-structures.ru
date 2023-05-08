@@ -39,13 +39,27 @@ class AuthController extends Controller
     public function register(Request $request): RedirectResponse
     {
         $credentials  = $request->validate([
-            'name' => ['required'],
-            'email' => ['required', 'email', 'unique:users,email'],
-            'personnel_number' => ['required', 'integer'],
-            'password' => ['required'],
-            'repeatPassword' => ['required', 'same:password'],
-            'role' => ['required', 'in:inspector,engineering-worker'],
-        ]);
+                'name' => ['required'],
+                'email' => ['required', 'email', 'unique:users,email'],
+                'personnel_number' => ['required', 'integer'],
+                'password' => ['required'],
+                'repeatPassword' => ['required', 'same:password'],
+                'role' => ['required', 'in:inspector,engineering-worker'],
+            ],
+            [
+                'name.required' => 'Введите ФИО',
+                'email.required' => 'Введите E-mail',
+                'email.email' => 'Введите корректный E-mail',
+                'email.unique' => 'Данный E-mail уже зарегистрирован',
+                'personnel_number.required' => 'Введите табельный номер',
+                'personnel_number.integer' => 'Табельный номер должен быть числом',
+                'password.required' => 'Введите пароль',
+                'repeatPassword.required' => 'Введите пароль',
+                'repeatPassword.same' => 'Пароли не совпадают',
+                'role.required' => 'Выберите роль',
+                'role.in' => 'Необходимо выбрать роль',
+            ]
+        );
 
         $credentials['password'] = Hash::make($credentials['password']);
 
@@ -61,9 +75,15 @@ class AuthController extends Controller
     public function login(Request $request): RedirectResponse | View
     {
         $credentials  = $request->validate([
-            'email' => ['required', 'email'],
-            'password' => ['required'],
-        ]);
+                'email' => ['required', 'email'],
+                'password' => ['required'],
+            ],
+            [
+                'email.required' => 'Введите E-mail',
+                'email.email' => 'Введите корректный E-mail',
+                'password.required' => 'Введите пароль',
+            ]
+        );
 
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();

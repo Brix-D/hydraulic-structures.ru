@@ -3,7 +3,7 @@
 @section('page-title', 'Регистрация')
 
 @section('content')
-<div class="flex flex-col justify-center items-center h-full">
+<div class="flex flex-col justify-center items-center min-h-full">
     <h2 class="text-primary text-3xl font-bold mb-6">Регистрация сотрудника</h2>
     <div class="bg-demi p-8 rounded-lg shadow-lg">
         <form action="{{ route('auth.register') }}" method="POST" class="flex flex-col gap-y-4 w-80">

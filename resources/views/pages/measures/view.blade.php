@@ -4,6 +4,14 @@
 
 @section('content')
 
+<div class="absolute top-6">
+    <p class="text-primary text-base">
+        <a href="{{ $backRoute }}" class="text-info hover:underline">
+            Назад
+        </a>
+    </p>
+</div>
+
 <div class="flex flex-col items-center h-full py-6">
     <h2 class="text-primary text-3xl font-bold mb-2">Измерения</h2>
     <p class="text-secondary text-lg font-normal mb-2">{{ $reservoir->name }}</p>

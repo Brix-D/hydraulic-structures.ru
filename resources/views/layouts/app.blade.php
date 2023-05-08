@@ -23,7 +23,7 @@
                     @show
                 @endauth 
                 <div class="content flex-grow flex min-h-full overflow-auto">
-                    <div class="container px-6 mx-auto">
+                    <div class="container px-6 mx-auto relative">
                         @yield('content')
                     </div>
                 </div>

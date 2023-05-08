@@ -49,9 +49,12 @@ class CollectController extends Controller {
             ];
         });
 
+        $backRoute = route('collect.index');
+
         $data = [
             'reservoirName' => $resevoir->name,
             'reservoirId' => $resevoir->getKey(),
+            'backRoute' => $backRoute,
             'sections' => $sections,
             'pumpStates' => $pumpStates,
         ];
@@ -96,8 +99,6 @@ class CollectController extends Controller {
                 $pumpMeasure->save();
             }
         }
-      //  dd($reservoirId, $sectionId, $data);
-        // return view('pages.collect.add');
         return redirect(route('collect.add', ['id' => $reservoirId]));
     }
 }
