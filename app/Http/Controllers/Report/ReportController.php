@@ -43,14 +43,23 @@ class ReportController extends Controller {
 
     public function chartMeasures(Request $request, $id)
     {
+        $dateFrom = $request->dateFrom ?? null;
+        $dateTo = $request->dateTo ?? null;
+
         $reservoir = Reservoir::query()
         ->where('id', $id)
         ->select(['name', 'id'])
         ->first();
 
         $measures = $reservoir->sections()
-            ->with(['sectionMeasures' => function($query) {
-                return $query->select(['id', 'value', 'createdAt', 'sectionId']);
+            ->with(['sectionMeasures' => function($query) use ($dateFrom, $dateTo) {
+                return $query->select(['id', 'value', 'createdAt', 'sectionId'])
+                ->when(isset($dateFrom), function ($query) use ($dateFrom) {
+                    return $query->whereDate('createdAt', '>=', $dateFrom);
+                })
+                ->when(isset($dateTo), function ($query) use ($dateTo) {
+                    return $query->whereDate('createdAt', '<=', $dateTo);
+                });
             }])
             ->select(['id', 'number', 'color'])
             ->get();

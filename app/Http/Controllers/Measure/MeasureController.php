@@ -52,6 +52,8 @@ class MeasureController extends Controller {
 
     public function showSectionMeasures(Request $request, $reservoirId, $sectionId): View
     {
+        $dateFrom = $request->dateFrom ?? null;
+        $dateTo = $request->dateTo ?? null;
         // $resevoir = Reservoir::query()
         //     ->where('id', $reservoirId)
         //     ->select(['name', 'id'])
@@ -79,6 +81,12 @@ class MeasureController extends Controller {
                         }]);
                 }
             ])
+            ->when(isset($dateFrom), function ($query) use ($dateFrom) {
+                return $query->whereDate('createdAt', '>=', $dateFrom);
+            })
+            ->when(isset($dateTo), function ($query) use ($dateTo) {
+                return $query->whereDate('createdAt', '<=', $dateTo);
+            })
             ->get();
 
         $measures = $measures->each(function ($sectionMeasure) use ($section) {

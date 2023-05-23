@@ -88,9 +88,18 @@ function getReservoirId() {
     return pathParts[2];
 }
 
-async function getChartData(reservoirId) {
+function getQueryParams() {
+    const queryParams = new URLSearchParams(location.search);
+    return Object.fromEntries(queryParams.entries());
+}
 
-    const response = await fetch(`${BASE_URL}/reports/${reservoirId}/chart`);
+async function getChartData(reservoirId, query = {}) {
+
+    const cleanQuery = Object.fromEntries(Object.entries(query).filter(([, value]) => !!value));
+
+    const params =  new URLSearchParams(cleanQuery);
+
+    const response = await fetch(`${BASE_URL}/reports/${reservoirId}/chart?${params.toString()}`);
     if (response.ok) {
         const chartData = await response.json();
         return chartData;
@@ -124,11 +133,17 @@ function formatChartData(chartData) {
     return report;
 }
 
-const reservoirId = getReservoirId();
+function getDataAndRender() {
+    const reservoirId = getReservoirId();
+    const query = getQueryParams();
 
-getChartData(reservoirId).then((chartData) => {
-   const reportData = formatChartData(chartData.measures);
-   createChart(reportData);
-}).catch((error) => console.error(error));
+    getChartData(reservoirId, query).then((chartData) => {
+       const reportData = formatChartData(chartData.measures);
+       createChart(reportData);
+    }).catch((error) => console.error(error));
+}
+
+getDataAndRender();
+
 
 
