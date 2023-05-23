@@ -16,6 +16,9 @@
     <h2 class="text-primary text-3xl font-bold mb-2">Измерения</h2>
     <p class="text-secondary text-lg font-normal mb-2">{{ $reservoir->name }}</p>
     <p class="text-secondary text-lg font-normal mb-6">Секция №{{ $section->number }}</p>
+    <div class=mb-6>
+        <x-ui.u-datepicker value="{{ $request->dateFrom }} - {{ $request->dateTo }}"/>
+    </div>
     <div class="bg-demi p-8 rounded-lg shadow-lg flex flex-col">
         <table class="rounded-lg bg-light border-collapse border border-primary border-solid min-w-[1280px]">
             <thead class="rounded-tl-lg rounded-tr-lg">

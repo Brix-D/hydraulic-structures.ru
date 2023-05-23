@@ -123,6 +123,7 @@ class MeasureController extends Controller {
             'backRoute' => $backRoute,
             'reservoir' => $section->reservoir,
             'section' => $section,
+            'request' => $request,
         ];
         return view('pages.measures.view', $data);
     }

@@ -14,6 +14,8 @@
         "vite": "^4.0.0"
     },
     "dependencies": {
+        "@easepick/core": "^1.2.1",
+        "@easepick/range-plugin": "^1.2.1",
         "chart.js": "^4.3.0",
         "chartjs-adapter-moment": "^1.0.1",
         "material-icons": "^1.13.1",

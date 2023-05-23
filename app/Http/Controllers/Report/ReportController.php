@@ -37,6 +37,7 @@ class ReportController extends Controller {
             'reservoirName' => $resevoir->name,
             'reservoirId' => $resevoir->getKey(),
             'backRoute' => $backRoute,
+            'request' => $request,
         ];
         return view('pages.reports.view', $data);
     }
